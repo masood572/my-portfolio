@@ -1,0 +1,52 @@
+<div class="contact-main-layout">
+  <div class="contact-info">
+    <h2 class="contact-title">Lets talk about every thing.</h2>
+    <p class="contact-desc">
+      Have a question, want to collaborate, or just want to say hello? Feel free to reach out about anything—I'm always happy to connect and discuss new ideas, projects, or opportunities!
+    </p>
+    <div class="contact-details">
+      <div class="contact-detail">
+        <i class="pi pi-map-marker icon"></i>
+        <span>Canal Rd, Ahbab Housing Society Block G 2 Phase 2 Johar Town, Lahore<br>Pakistan</span>
+      </div>
+      <div class="contact-detail">
+        <i class="pi pi-phone icon"></i>
+        <span>+92 308 8432572</span>
+      </div>
+      <div class="contact-detail">
+        <i class="pi pi-envelope icon"></i>
+        <span>hmasoodahmad786&#64;gmail.com</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact-form-col">
+    <h2 class="contact-title">Contact</h2>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <div class="form-group">
+        <input formControlName="name" type="text" placeholder="Your Name" class="circle-input" />
+        <div class="error" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid">
+          Name is required and must be less than 50 characters.
+        </div>
+      </div>
+      <div class="form-group">
+        <input formControlName="email" type="email" placeholder="Your Email" class="circle-input" />
+        <div class="error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid">
+          Please enter a valid email address.
+        </div>
+      </div>
+      <div class="form-group">
+        <input formControlName="subject" type="text" placeholder="Subject" class="circle-input" />
+        <div class="error" *ngIf="contactForm.get('subject')?.touched && contactForm.get('subject')?.invalid">
+          Subject is required and must be less than 100 characters.
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea formControlName="message" rows="5" placeholder="Your Message" class="circle-input"></textarea>
+        <div class="error" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid">
+          Message is required and must be less than 500 characters.
+        </div>
+      </div>
+      <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Send Message</button>
+    </form>
+  </div>
+</div>

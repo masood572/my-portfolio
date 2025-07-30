@@ -1,0 +1,403 @@
+.education-main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #181c23;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 80px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  min-height: 70vh;
+  box-sizing: border-box;
+}
+
+.education-title {
+  color: #b6ff5e;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.education-timeline-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.education-timeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 5px;
+  text-align: left;
+}
+
+.timeline-item:nth-child(odd) {
+  padding-right: 0;
+}
+
+.timeline-item:nth-child(even) {
+  padding-left: 5px;
+}
+
+.timeline-item:last-child,
+.timeline-item:nth-last-child(2) {
+  margin-bottom: 0;
+}
+
+/* Individual timeline line for each item */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, #b6ff5e 0%, #3cff3c 100%);
+  border-radius: 1px;
+  z-index: 1;
+}
+
+.timeline-bullet {
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: #b6ff5e;
+  border-radius: 50%;
+  border: 3px solid #181c23;
+  box-shadow: 0 0 0 2px #b6ff5e;
+  z-index: 2;
+}
+
+.timeline-content {
+  background: #232733;
+  border-radius: 12px;
+  padding: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-left: 20px;
+}
+
+.timeline-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(182, 255, 94, 0.1);
+}
+
+.degree-title {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.degree-field {
+  color: #bdbdbd;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+}
+
+.degree-date {
+  color: #3cff3c;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.date-icon {
+  font-size: 0.8rem;
+  color: #3cff3c;
+}
+.subject-title{
+  font-size: 0.95rem;
+  color: #3cff3c;
+  font-weight: 500;
+  margin: 0;
+  margin-right: 5px;
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+  .education-main-layout {
+    padding: 50px 100px;
+    max-width: 1400px;
+  }
+  
+  .education-title {
+    font-size: 2.2rem;
+  }
+  
+  .education-timeline {
+    gap: 3rem;
+  }
+  
+  .timeline-item {
+    padding-left: 5px;
+  }
+  
+  .timeline-item::before {
+    left: 0;
+    height: 100%;
+  }
+  
+  .timeline-bullet {
+    left: -6px;
+    top: 0;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .education-main-layout {
+    padding: 35px 60px;
+    max-width: 1200px;
+  }
+  
+  .education-title {
+    font-size: 1.8rem;
+  }
+  
+  .education-timeline {
+    gap: 2rem;
+  }
+  
+  .timeline-item {
+    padding-left: 5px;
+  }
+  
+  .timeline-item::before {
+    left: 0;
+    height: 100%;
+  }
+  
+  .timeline-bullet {
+    left: -6px;
+    top: 0;
+  }
+}
+
+/* Tablet Landscape */
+@media (max-width: 1024px) {
+  .education-main-layout {
+    padding: 30px 40px;
+    max-width: 95vw;
+  }
+  
+  .education-title {
+    font-size: 1.7rem;
+  }
+  
+  .education-timeline {
+    gap: 1.5rem;
+  }
+  
+  .timeline-item {
+    padding-left: 5px;
+  }
+  
+  .timeline-item::before {
+    left: 0;
+    height: 100%;
+  }
+  
+  .timeline-bullet {
+    left: -6px;
+    top: 0;
+  }
+  
+  .degree-title {
+    font-size: 1.1rem;
+  }
+  
+  .degree-field {
+    font-size: 0.9rem;
+  }
+  
+  .degree-date {
+    font-size: 0.85rem;
+  }
+}
+
+/* Tablet Portrait */
+@media (max-width: 900px) {
+  .education-main-layout {
+    padding: 30px 25px;
+    max-width: 95vw;
+    min-height: auto;
+  }
+  
+  .education-timeline {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .timeline-item {
+    padding-left: 5px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .timeline-item::before {
+    left: 0;
+    height: 100%;
+  }
+  
+  .timeline-bullet {
+    left: -6px;
+    top: 0;
+  }
+  
+  .education-title {
+    font-size: 1.8rem;
+  }
+  
+  .degree-title {
+    font-size: 1.2rem;
+  }
+  
+  .degree-field {
+    font-size: 0.95rem;
+  }
+  
+  .degree-date {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .education-main-layout {
+    padding: 25px 20px;
+    max-width: 98vw;
+  }
+  
+  .education-title {
+    font-size: 1.6rem;
+  }
+  
+  .degree-title {
+    font-size: 1.1rem;
+  }
+  
+  .degree-field {
+    font-size: 0.9rem;
+  }
+  
+  .degree-date {
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Medium */
+@media (max-width: 600px) {
+  .education-main-layout {
+    padding: 20px 15px;
+    border-radius: 16px;
+    max-width: 98vw;
+  }
+  
+  .timeline-content {
+    padding: 1rem;
+  }
+  
+  .education-title {
+    font-size: 1.4rem;
+  }
+  
+  .degree-title {
+    font-size: 1rem;
+  }
+  
+  .degree-field {
+    font-size: 0.85rem;
+  }
+  
+  .degree-date {
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .education-main-layout {
+    padding: 15px 12px;
+    max-width: 98vw;
+  }
+  
+  .timeline-content {
+    padding: 0.8rem;
+  }
+  
+  .education-title {
+    font-size: 1.3rem;
+  }
+  
+  .degree-title {
+    font-size: 0.95rem;
+  }
+  
+  .degree-field {
+    font-size: 0.8rem;
+  }
+  
+  .degree-date {
+    font-size: 0.75rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 360px) {
+  .education-main-layout {
+    padding: 12px 8px;
+    max-width: 98vw;
+  }
+  
+  .timeline-content {
+    padding: 0.7rem;
+  }
+  
+  .education-title {
+    font-size: 1.2rem;
+  }
+  
+  .degree-title {
+    font-size: 0.9rem;
+  }
+  
+  .degree-field {
+    font-size: 0.75rem;
+  }
+  
+  .degree-date {
+    font-size: 0.7rem;
+  }
+}
+
+/* Landscape Orientation for Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .education-main-layout {
+    min-height: 90vh;
+    padding: 20px 30px;
+    max-width: 95vw;
+  }
+  
+  .education-timeline {
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,379 @@
+.projects-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 0px;
+  grid-column: 1 / -1;
+}
+
+.project-main-layout {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  background: #181c23;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 80px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+  min-height: 415px;
+  box-sizing: border-box;
+  gap: 20px;
+  position: relative;
+}
+
+.project-details-col {
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 280px;
+  max-width: 400px;
+  padding-right: 20px;
+  height: 415px;
+}
+
+.project-index {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #b6ff5e22;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.project-title-main {
+  color: #fff;
+}
+
+.serial-number {
+  color: #858885;
+  font-weight: 700;
+}
+
+.project-meta {
+  font-size: 1.1rem;
+  color: #3cff3c;;
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  color: #bdbdbd;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
+.project-description ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.project-description li {
+  margin-bottom: 0.3rem;
+}
+
+.project-tools {
+  color: #3cff3c;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.tool-name {
+  color: #3cff3c;
+}
+
+.project-divider {
+  width: 100%;
+  height: 2px;
+  background: #b6ff5e22;
+  margin: 1.2rem 0 1rem 0;
+}
+
+.project-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.project-action-btn {
+  background: #232733;
+  border: 2px solid #b6ff5e22;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bdbdbd;
+  font-size: 1.3rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  cursor: pointer;
+}
+
+.project-action-btn:disabled,
+.project-action-btn.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.project-action-btn:not(:disabled):hover {
+  background: #b6ff5e22;
+  color: #fff;
+}
+
+
+
+.project-action-btn:active {
+  background: #b6ff5e22;
+}
+
+.project-image-col {
+  flex: 0 0 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 400px;
+  max-width: 700px;
+  position: relative;
+  height: auto;
+}
+
+.project-image-wrapper {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  background: #181c23;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  max-width: 100%;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.project-image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-indicators {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(0,0,0,0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+}
+
+.image-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #bdbdbd;
+  transition: background 0.3s ease;
+}
+
+.image-indicator.active {
+  background: #3cff3c;
+}
+
+.project-scroll-btns {
+  position: absolute;
+  right: 40px;
+  bottom: 40px;
+  display: flex;
+  gap: 1.2rem;
+  z-index: 2;
+}
+
+.scroll-btn {
+  background: #232733;
+  border: 2px solid #b6ff5e22;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bdbdbd;
+  font-size: 1.5rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.scroll-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.scroll-btn:active {
+  background: #b6ff5e22;
+}
+
+.image-scroll-btns {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.image-scroll-btn {
+  background: #181c23;
+  border: 2px solid #b6ff5e22;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bdbdbd;
+  font-size: 1.2rem;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+.image-scroll-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.image-scroll-btn:active {
+  background: #b6ff5e22;
+}
+
+@media (max-width: 1024px) {
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-main-layout {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    gap: 24px;
+    max-width: 98vw;
+    min-height: 265px;
+    position: relative;
+  }
+  .project-details-col, .project-image-col {
+    flex: 1 1 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-right: 0;
+  }
+  .project-details-col {
+    justify-content: flex-start;
+    height: auto;
+  }
+  .project-image-wrapper {
+    max-width: 100%;
+    height: 265px;
+  }
+  .project-scroll-btns {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 20px;
+    right: auto;
+    bottom: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .project-main-layout {
+    grid-template-columns: 1fr;
+    padding: 16px 4px;
+    border-radius: 12px;
+    min-height: 165px;
+  }
+  .project-title {
+    font-size: 1.2rem;
+  }
+  .project-index {
+    font-size: 2.2rem;
+  }
+  .project-details-col {
+    justify-content: flex-start;
+    height: auto;
+  }
+  .project-image-wrapper {
+    border-radius: 10px;
+    height: 165px;
+  }
+  .scroll-btn, .project-action-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 1.1rem;
+  }
+  .image-scroll-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+  .image-scroll-btns {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+  }
+  .project-scroll-btns {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 16px;
+    right: auto;
+    bottom: auto;
+  }
+} 

@@ -1,0 +1,64 @@
+<div class="projects-section">
+  <div class="project-main-layout">
+    <h1 class="section-title">Latest Projects</h1>
+
+  <div class="project-details-col">
+        <h2 class="project-title">
+          <span class="project-title-main"><span class="serial-number">{{ (activeIndex + 1) | number: '2.0' }}:</span> {{ activeProject.title }}</span>
+        </h2>
+    <div class="project-meta">
+      <span class="project-company">{{ activeProject.company }}</span> |
+      <span class="project-period">{{ activeProject.period }}</span>
+    </div>
+    <div class="project-description">
+      <ul>
+        <li *ngFor="let desc of activeProject.description">{{ desc }}</li>
+      </ul>
+    </div>
+    <div class="project-tools">
+      <span *ngFor="let tool of activeProject.tools; let last = last">
+        <span class="tool-name">{{ tool }}</span><span *ngIf="!last">, </span>
+      </span>
+    </div>
+    <div class="project-divider"></div>
+    <div class="project-actions">
+      <button class="project-action-btn" title="View Project" 
+              [disabled]="!activeProject.projectLink"
+              (click)="openProjectLink()"
+              [class.disabled]="!activeProject.projectLink">
+        <i class="pi pi-external-link"></i>
+      </button>
+      <button class="project-action-btn" title="View on GitHub" disabled><i class="pi pi-github"></i></button>
+    </div>
+  </div>
+  <div class="project-image-col">
+    <div class="project-image-wrapper">
+      <img [src]="activeImage" [alt]="activeProject.title" class="project-image" />
+      <div class="image-overlay">
+        <div class="image-indicators">
+          <span *ngFor="let image of activeProject.images; let i = index" 
+                class="image-indicator" 
+                [class.active]="i === activeImageIndex"></span>
+        </div>
+      </div>
+      <div class="image-scroll-btns">
+        <button class="image-scroll-btn" (click)="prevImage()" [disabled]="activeImageIndex === 0">
+          <i class="pi pi-angle-left"></i>
+        </button>
+        <button class="image-scroll-btn" (click)="nextImage()" [disabled]="activeImageIndex === activeProject.images.length - 1">
+          <i class="pi pi-angle-right"></i>
+        </button>
+          </div>
+  </div>
+</div>
+<div class="project-scroll-btns">
+  <button class="scroll-btn" (click)="prevProject()" [disabled]="activeIndex === 0">
+    <i class="pi pi-angle-left"></i>
+  </button>
+  <button class="scroll-btn" (click)="nextProject()" [disabled]="activeIndex === projects.length - 1">
+    <i class="pi pi-angle-right"></i>
+  </button>
+</div>
+</div>
+  
+</div> 

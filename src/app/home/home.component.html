@@ -1,0 +1,149 @@
+<!-- Header/Navbar -->
+<div class="navbar-container">
+  <header class="navbar">
+    <div class="navbar__logo">Hi<span class="navbar__dot">.</span></div>
+    
+    <!-- Hamburger Menu Button -->
+    <div class="navbar__hamburger" (click)="toggleMobileMenu()">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </div>
+    
+    <!-- Desktop Navigation -->
+    <nav class="navbar__links">
+      <a href="#home" (click)="closeMobileMenu()">Home</a>
+      <a href="#education" (click)="closeMobileMenu()">Education</a>
+      <a href="#skills" (click)="closeMobileMenu()">Skills</a>
+      <a href="#projects" (click)="closeMobileMenu()">Projects</a>
+      <a href="#experience" (click)="closeMobileMenu()">Experience</a>
+      <a href="#contact" (click)="closeMobileMenu()">Contact me</a>
+    </nav>
+  </header>
+  
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()">
+    <nav class="mobile-menu" (click)="$event.stopPropagation()">
+      <div class="mobile-menu__header">
+        <div class="mobile-menu__logo">Hi.</div>
+        <div class="mobile-menu__close" (click)="closeMobileMenu()">
+          <span class="close-line"></span>
+          <span class="close-line"></span>
+        </div>
+      </div>
+      <div class="mobile-menu__links">
+        <a href="#home" (click)="closeMobileMenu()">Home</a>
+        <a href="#education" (click)="closeMobileMenu()">Education</a>
+        <a href="#skills" (click)="closeMobileMenu()">Skills</a>
+        <a href="#projects" (click)="closeMobileMenu()">Projects</a>
+        <a href="#experience" (click)="closeMobileMenu()">Experience</a>
+        <a href="#contact" (click)="closeMobileMenu()">Contact me</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<section id="home" class="section hero-section">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Masood Ahmad</h1>
+        <h2>I'm a <span class="highlight">Full Stack Developer</span></h2>
+        <p>
+         A passionate Angular Specialist hands-on experience building dynamic, scalable web applications. I specialize in Angular, Node.js, and the MEAN stack, and have delivered high-performance SaaS platforms, interactive dashboards, and multilingual solutions. With strong expertise in modern frontend frameworks, REST APIs, and responsive UI, I focus on creating clean, accessible, and maintainable code
+        </p>
+        <div class="hero-actions">
+          <button (click)="downloadCV()" class="btn btn-primary">Download CV</button>
+
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/masood-ahmad-6a0765226/" target="_blank"><i class="pi pi-linkedin"></i></a>
+            <!-- <a href="#"  target="_blank"><i class="pi pi-github"></i></a> -->
+          </div>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-svg-wrapper">
+          <img src="/assets/mypic.png" alt="Masood Ahmad" />
+          <svg class="hero-arc" width="440" height="440" viewBox="0 0 440 440">
+            <path
+              d="M220,40 a180,180 0 0,1 0,360"
+              stroke="#3cff3c"
+              stroke-width="4"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="section">
+  <app-education></app-education>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="section">
+  <div class="skills-main-layout">
+    <div class="skills-info">
+      <h2 class="skills-title">
+        <span class="title-white">My</span>
+        <span class="title-green">Expertise</span>
+      </h2>
+      <p class="skills-desc">
+        A comprehensive showcase of my technical skills and proficiency levels across various technologies and frameworks. From frontend development with Angular and modern CSS to backend development with Node.js and database management, each skill represents years of hands-on experience and continuous learning.
+      </p>
+      <div class="skills-stats">
+        <div class="stat-item">
+          <i class="pi pi-code icon"></i>
+          <span>Frontend & Backend</span>
+        </div>
+        <div class="stat-item">
+          <i class="pi pi-database icon"></i>
+          <span>Database Management</span>
+        </div>
+        <div class="stat-item">
+          <i class="pi pi-mobile icon"></i>
+          <span>Responsive Design</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-cards-col">
+      <h2 class="skills-title">Technical Skills</h2>
+      <div class="skills-cards-container">
+        <div class="skills-col" *ngFor="let col of skillColumns">
+          <div class="skill-bar" *ngFor="let skill of col" [attr.data-skill]="skill.name">
+            <div class="skill-label">{{ skill.name }}</div>
+            <div class="skill-bar-bg">
+              <div class="skill-bar-fill" 
+                   [style.width.%]="skill.percent" 
+                   [style.--skill-percentage.%]="skill.percent"
+                   [attr.data-percent]="skill.percent">{{ skill.percent }}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+  <app-my-project></app-my-project>
+</section>
+<!-- Projects section removed -->
+
+<!-- Experience Section -->
+<section id="experience" class="section">
+  <app-work-experience></app-work-experience>
+</section>
+
+
+<!-- Contact Me Section -->
+<section id="contact" class="section">
+  <app-contact-me></app-contact-me>
+</section>
