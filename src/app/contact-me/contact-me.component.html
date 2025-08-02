@@ -46,7 +46,13 @@
           Message is required and must be less than 500 characters.
         </div>
       </div>
-      <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Send Message</button>
+      <button type="submit" class="submit-btn" [disabled]="contactForm.invalid || isLoading">
+        <span *ngIf="!isLoading">Send Message</span>
+        <div *ngIf="isLoading" class="spinner-container">
+          <div class="spinner"></div>
+          <span>Sending...</span>
+        </div>
+      </button>
     </form>
   </div>
 </div>

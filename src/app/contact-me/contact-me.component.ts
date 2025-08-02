@@ -13,6 +13,7 @@ import emailjs from 'emailjs-com';
 export class ContactMeComponent implements OnInit {
   contactForm!: FormGroup;
   title = 'let\'s talk about every thing.';
+  isLoading = false;
 
   constructor(private fb: FormBuilder) {}
 
@@ -25,28 +26,33 @@ export class ContactMeComponent implements OnInit {
     });
   }
 
+  async onSubmit() {
+    if (this.contactForm.valid && !this.isLoading) {
+      this.isLoading = true;
+      
+      const templateParams = {
+        name: this.contactForm.value.name,
+        email: this.contactForm.value.email,
+        subject: this.contactForm.value.subject,
+        message: this.contactForm.value.message
+      };
 
-onSubmit() {
-  if (this.contactForm.valid) {
-    const templateParams = {
-      name: this.contactForm.value.name,
-      email: this.contactForm.value.email,
-      subject: this.contactForm.value.subject,
-      message: this.contactForm.value.message
-    };
-
-    emailjs.send(
-      'service_f3sylzf',     // e.g., 'service_abc123'
-      'template_96g0q05',    // e.g., 'template_xyz456'
-      templateParams,
-      'iek7S5HQP3jhLd6jp'      // e.g., 'xFjk34Yz...'
-    ).then(() => {
-      alert('Message sent successfully!');
-      this.contactForm.reset();
-    }, (error) => {
-      console.error('Email failed:', error);
-      alert('Failed to send message. Please try again later.');
-    });
+      try {
+        await emailjs.send(
+          'service_f3sylzf',     // e.g., 'service_abc123'
+          'template_96g0q05',    // e.g., 'template_xyz456'
+          templateParams,
+          'iek7S5HQP3jhLd6jp'      // e.g., 'xFjk34Yz...'
+        );
+        
+        alert('Message sent successfully!');
+        this.contactForm.reset();
+      } catch (error) {
+        console.error('Email failed:', error);
+        alert('Failed to send message. Please try again later.');
+      } finally {
+        this.isLoading = false;
+      }
+    }
   }
-}
 }
