@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import emailjs from 'emailjs-com';
 
 @Component({
   selector: 'app-contact-me',
@@ -24,11 +25,28 @@ export class ContactMeComponent implements OnInit {
     });
   }
 
-  onSubmit() {
-    if (this.contactForm.valid) {
-      // Handle form submission (e.g., send to API or show a message)
-      console.log(this.contactForm.value);
+
+onSubmit() {
+  if (this.contactForm.valid) {
+    const templateParams = {
+      name: this.contactForm.value.name,
+      email: this.contactForm.value.email,
+      subject: this.contactForm.value.subject,
+      message: this.contactForm.value.message
+    };
+
+    emailjs.send(
+      'service_f3sylzf',     // e.g., 'service_abc123'
+      'template_96g0q05',    // e.g., 'template_xyz456'
+      templateParams,
+      'iek7S5HQP3jhLd6jp'      // e.g., 'xFjk34Yz...'
+    ).then(() => {
+      alert('Message sent successfully!');
       this.contactForm.reset();
-    }
+    }, (error) => {
+      console.error('Email failed:', error);
+      alert('Failed to send message. Please try again later.');
+    });
   }
+}
 }
