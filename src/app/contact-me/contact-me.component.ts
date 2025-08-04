@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import emailjs from 'emailjs-com';
@@ -14,8 +14,9 @@ export class ContactMeComponent implements OnInit {
   contactForm!: FormGroup;
   title = 'let\'s talk about every thing.';
   isLoading = false;
+  private wasOutOfView = true;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private elRef: ElementRef) {}
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
@@ -24,7 +25,25 @@ export class ContactMeComponent implements OnInit {
       subject: ['', [Validators.required, Validators.maxLength(100)]],
       message: ['', [Validators.required, Validators.maxLength(500)]]
     });
+    window.addEventListener('scroll', this.onScroll, true);
   }
+  ngOnDestroy(): void {
+    window.removeEventListener('scroll', this.onScroll, true);
+  }
+
+  onScroll = (): void => {
+    const rect = this.elRef.nativeElement.getBoundingClientRect();
+
+    // Partial visibility: if any part of the section is visible
+    const partiallyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+    if (partiallyVisible && this.wasOutOfView) {
+      this.contactForm.reset();
+      this.wasOutOfView = false;
+    } else if (!partiallyVisible) {
+      this.wasOutOfView = true;
+    }
+  };
 
   async onSubmit() {
     if (this.contactForm.valid && !this.isLoading) {
