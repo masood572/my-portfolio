@@ -1,15 +1,16 @@
 .projects-section {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #fff;
   text-align: left;
   margin-bottom: 0px;
+  margin-top: 0px;
   grid-column: 1 / -1;
 }
 
@@ -19,11 +20,11 @@
   background: #181c23;
   border-radius: 24px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 40px 80px;
+  padding: 30px 80px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.4);
-  min-height: 415px;
+  min-height: 80vh;
   box-sizing: border-box;
   gap: 20px;
   position: relative;
@@ -38,7 +39,7 @@
   min-width: 280px;
   max-width: 400px;
   padding-right: 20px;
-  height: 415px;
+  height: 380px;
 }
 
 .project-index {
@@ -50,9 +51,10 @@
 }
 
 .project-title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
+  margin-top: 0px;
   color: #fff;
 }
 
@@ -73,11 +75,11 @@
 
 .project-description {
   color: #bdbdbd;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: .9rem;
+  margin-bottom: 0px;
   flex: 1;
   overflow-y: auto;
-  max-height: 200px;
+  max-height: 150px;
 }
 
 .project-description ul {
@@ -92,7 +94,6 @@
 .project-tools {
   color: #3cff3c;
   font-size: 1rem;
-  margin-bottom: 1.2rem;
 }
 
 .tool-name {
@@ -148,11 +149,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
   min-width: 400px;
   max-width: 700px;
   position: relative;
-  height: auto;
+  max-height: 290px;
 }
 
 .project-image-wrapper {
@@ -220,8 +221,8 @@
 
 .project-scroll-btns {
   position: absolute;
-  right: 40px;
-  bottom: 40px;
+  right: 55px;
+  bottom: 60px;
   display: flex;
   gap: 1.2rem;
   z-index: 2;
@@ -289,17 +290,21 @@
 
 @media (max-width: 1024px) {
   .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
   
   .project-main-layout {
     grid-template-columns: 1fr;
     padding: 30px 20px;
     gap: 24px;
-    max-width: 98vw;
+    max-width: 95vw;
     min-height: 265px;
     position: relative;
+  }
+  .project-image-col {
+    height: 300px;
   }
   .project-details-col, .project-image-col {
     flex: 1 1 100%;
@@ -329,7 +334,8 @@
 @media (max-width: 600px) {
   .section-title {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0px;
+    margin-top: 0px;
   }
   
   .project-main-layout {
@@ -339,7 +345,8 @@
     min-height: 165px;
   }
   .project-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    margin-top: 0px;
   }
   .project-index {
     font-size: 2.2rem;

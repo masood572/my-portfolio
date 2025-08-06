@@ -12,7 +12,7 @@ export class MyProjectComponent {
   projects = [
     {
       id: 1,
-      title: 'Strada World – Transportation Management SaaS.',
+      title: 'Strada World – Transportation Management Saas.',
       company: 'OneClout',
       period: 'Sep 2023 - Present',
       tools: ['Angular', 'Nx', 'ng-query', 'Jest', 'ApexCharts', 'Highcharts', 'Storybook', 'Module Federation', 'i18n'],
